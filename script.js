@@ -1,3 +1,5 @@
+var timeBlocks = document.getElementsByClassName("time-block");
+
 //Checks local storage and pulls any saved events
 function displyEvents(){
     $('#9 .description').val(localStorage.getItem('9'));
@@ -18,6 +20,32 @@ function saveEvent(event){
     localStorage.setItem(time, description)
 }
 
+function getDateTime(){
+    var currentDate = moment().format('dddd, MMMM Do');
+
+    $('#currentDay').text(currentDate);
+
+    for(var i=0; i<timeBlocks.length; i++){
+        setBackground(timeBlocks[i]);
+    }
+}
+
+function setBackground(ele){
+    var currentTime = moment().hours();
+    if(ele.id < currentTime){
+        ele.classList.add("past")
+    } else if(ele.id == currentTime){
+        ele.classList.remove("past");
+        ele.classList.add("present");
+    } else {
+        ele.classList.remove("past");
+        ele.classList.remove("present");
+        ele.classList.add("future");
+    }
+}
+
 window.addEventListener('load', (event) => {
     $('.saveBtn').on('click', saveEvent);
+    displyEvents();
+    getDateTime();
 });
