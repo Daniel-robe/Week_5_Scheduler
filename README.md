@@ -7,6 +7,6 @@ A scheduling app that creates events and stores them in local storage. A user ca
 ## Links 
 
 Link to the repository - https://github.com/Daniel-robe/Week_5_Scheduler
-Link to the deployed site -
+Link to the deployed site - https://daniel-robe.github.io/Week_5_Scheduler/
 
 ## Screenshots
